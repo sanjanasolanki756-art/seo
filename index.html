@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Fusion Nexus | Elite Gaming Chair</title>
+  <!-- Google Fonts & Simple Font Awesome Icons (Free CDN) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0b0c10;
+      color: #eef2ff;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* custom scroll */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1f1f2b;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #ff4d6d;
+      border-radius: 8px;
+    }
+
+    /* container utility */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* header / nav */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #ff4d6d, #ffb347);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .logo span {
+      font-size: 1.6rem;
+      font-weight: 600;
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+      color: #eef2ff;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #cdd9ff;
+      font-weight: 500;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+    .nav-links a:hover {
+      color: #ff4d6d;
+    }
+    .btn-outline-light {
+      border: 1.5px solid #ff4d6d;
+      background: transparent;
+      padding: 0.5rem 1.4rem;
+      border-radius: 40px;
+      color: #ff4d6d;
+      font-weight: 600;
+      transition: 0.2s;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .btn-outline-light:hover {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    /* hero section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      padding: 3rem 0 4rem 0;
+    }
+    .hero-content {
+      flex: 1;
+      min-width: 280px;
+    }
+    .hero-badge {
+      background: rgba(255, 77, 109, 0.15);
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #ffb347;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.3px;
+    }
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .hero-content h1 span {
+      color: #ff4d6d;
+    }
+    .hero-desc {
+      font-size: 1.1rem;
+      color: #b9c3e6;
+      margin-bottom: 2rem;
+      max-width: 90%;
+    }
+    .price-tag {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .current-price {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #ff4d6d;
+    }
+    .old-price {
+      font-size: 1.2rem;
+      text-decoration: line-through;
+      color: #8f9bb3;
+    }
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+    .btn-primary {
+      background: #ff4d6d;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 48px;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 8px 18px rgba(255, 77, 109, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-primary:hover {
+      background: #e63950;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 25px rgba(255, 77, 109, 0.4);
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 1.5px solid #4d5b7c;
+      padding: 1rem 2rem;
+      border-radius: 48px;
+      font-weight: 600;
+      color: #cdd9ff;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: #ff4d6d;
+      color: #ff4d6d;
+    }
+    .hero-visual {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      min-width: 280px;
+      position: relative;
+    }
+    .chair-img {
+      max-width: 100%;
+      filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.5));
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* features section */
+    .features {
+      padding: 5rem 0;
+      text-align: center;
+      background: #0f1117;
+      border-radius: 64px 64px 0 0;
+      margin-top: 2rem;
+    }
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      color: #9aa4bf;
+      max-width: 600px;
+      margin: 0 auto 3rem auto;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .feature-card {
+      background: #181c27;
+      padding: 2rem 1.5rem;
+      border-radius: 28px;
+      transition: all 0.2s ease;
+      border: 1px solid #2a2f3f;
+    }
+    .feature-card:hover {
+      transform: translateY(-8px);
+      border-color: #ff4d6d;
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.5);
+    }
+    .feature-icon {
+      font-size: 2.8rem;
+      color: #ff4d6d;
+      margin-bottom: 1rem;
+    }
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+    .feature-card p {
+      color: #b9c3e6;
+    }
+
+    /* specs / highlight */
+    .specs {
+      padding: 5rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: center;
+    }
+    .specs-left {
+      flex: 1;
+    }
+    .specs-left h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .spec-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .spec-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: #141822;
+      padding: 1rem 1.5rem;
+      border-radius: 60px;
+      width: fit-content;
+      backdrop-filter: blur(4px);
+    }
+    .spec-item i {
+      color: #ff4d6d;
+      font-size: 1.3rem;
+      width: 28px;
+    }
+    .specs-right {
+      flex: 1;
+      background: linear-gradient(145deg, #191e2a, #0f121b);
+      border-radius: 42px;
+      padding: 2rem;
+      text-align: center;
+      border: 1px solid #2e3548;
+    }
+    .specs-right img {
+      width: 80%;
+      max-width: 280px;
+      margin-bottom: 1rem;
+    }
+    .quote {
+      font-style: italic;
+      font-weight: 500;
+      margin-top: 1rem;
+      color: #ffb347;
+    }
+
+    /* gallery / test area */
+    .testimonial {
+      background: #0b0c10;
+      padding: 5rem 0;
+      text-align: center;
+    }
+    .testimonial-card {
+      max-width: 750px;
+      margin: 2rem auto 0 auto;
+      background: #131722;
+      border-radius: 48px;
+      padding: 2rem 2rem;
+      border: 1px solid #2a2f3f;
+    }
+    .stars {
+      color: #ffb347;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      letter-spacing: 3px;
+    }
+    .testimonial-text {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    .customer {
+      font-weight: 700;
+      color: #ff4d6d;
+    }
+
+    /* cta banner */
+    .cta-banner {
+      background: linear-gradient(110deg, #ff4d6d, #b8324b);
+      margin: 2rem auto 3rem;
+      border-radius: 60px;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .cta-banner h3 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 0.6rem;
+    }
+    .cta-banner p {
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+    }
+    .btn-white {
+      background: white;
+      color: #ff4d6d;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      font-weight: bold;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-white:hover {
+      background: #f0f0f0;
+      transform: scale(1.02);
+    }
+
+    /* footer */
+    footer {
+      padding: 2.5rem 0 2rem;
+      border-top: 1px solid #1e2330;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .social-icons a {
+      color: #a5b3d9;
+      margin-left: 1.2rem;
+      font-size: 1.3rem;
+      transition: 0.2s;
+    }
+    .social-icons a:hover {
+      color: #ff4d6d;
+    }
+
+    /* responsive */
+    @media (max-width: 850px) {
+      .navbar {
+        flex-direction: column;
+      }
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+      .hero-desc {
+        max-width: 100%;
+      }
+      .spec-item {
+        width: 100%;
+      }
+      .container {
+        padding: 0 1.5rem;
+      }
+      .cta-banner h3 {
+        font-size: 1.6rem;
+      }
+    }
+    @media (max-width: 550px) {
+      .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .price-tag {
+        flex-wrap: wrap;
+      }
+    }
+    button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="logo">FUSION<span>NEXUS</span></div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#specs">Specs</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+      </ul>
+      <button class="btn-outline-light" id="cartAlertBtn"><i class="fas fa-shopping-cart"></i> Shop</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-gamepad"></i> 2026 Pro Series</div>
+        <h1>Dominate Every <span>Match</span><br>With <span>Nexus Elite</span></h1>
+        <p class="hero-desc">Ergonomic high-back design, breathable PU leather, 4D adjustable armrests, and a sturdy steel frame — built for marathon sessions and ultimate victory.</p>
+        <div class="price-tag">
+          <span class="current-price">$349.99</span>
+          <span class="old-price">$549.99</span>
+          <span style="background: #252b3b; padding: 0.2rem 0.8rem; border-radius: 60px; font-size: 0.8rem;">🔥 Save 36%</span>
+        </div>
+        <div class="cta-group">
+          <button class="btn-primary" id="buyNowBtn"><i class="fas fa-bolt"></i> Buy Now</button>
+          <button class="btn-secondary" id="watchTrailerBtn"><i class="fas fa-play"></i> Watch Trailer</button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <!-- gaming chair vector illustration style (SVG-inspired but we use a clean modern chair image via emoji/ placeholder? We'll create a nice scalable pure CSS + SVG like representation? Using font awesome + div? better: an optimized chair PNG? But we can draw a gaming chair using pure SVG and fontawesome? I'll design a modern SVG chair graphic to be fully custom and responsive. -->
+        <svg class="chair-img" width="380" height="380" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#shadow)">
+            <rect x="130" y="100" width="140" height="140" rx="30" fill="#1f232e" stroke="#ff4d6d" stroke-width="2.5"/>
+            <rect x="150" y="115" width="100" height="70" rx="20" fill="#2a3042"/>
+            <path d="M170 180 L170 280 L230 280 L230 180" stroke="#ff4d6d" stroke-width="3" fill="none"/>
+            <rect x="160" y="280" width="80" height="40" rx="10" fill="#252b3b" stroke="#ffb347" stroke-width="2"/>
+            <circle cx="200" cy="140" r="18" fill="#ff4d6d" stroke="none"/>
+            <path d="M200 130 L200 150 M190 140 L210 140" stroke="#fff" stroke-width="2"/>
+            <path d="M120 230 L100 320 L145 315 L135 230" fill="#1f232e" stroke="#ff4d6d" stroke-width="2"/>
+            <path d="M280 230 L300 320 L255 315 L265 230" fill="#1f232e" stroke="#ff4d6d" stroke-width="2"/>
+            <rect x="140" y="310" width="120" height="18" rx="9" fill="#2e3548"/>
+            <path d="M210 170 L250 190 L245 200 L210 185 Z" fill="#ffb347" opacity="0.8"/>
+          </g>
+          <defs>
+            <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#ff4d6d" flood-opacity="0.25"/>
+            </filter>
+          </defs>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="features" id="features">
+    <div class="container">
+      <h2 class="section-title">Engineered for Champions</h2>
+      <p class="section-sub">Experience the pinnacle of comfort, durability, and style — whether you're streaming or competing.</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-couch"></i></div>
+          <h3>Cold-Cure Foam</h3>
+          <p>High-density foam retains shape, offering perfect balance between softness and support.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-arrows-alt"></i></div>
+          <h3>4D Adjustable</h3>
+          <p>Move up/down, forward/back, rotate, and tilt — total armrest customization.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div>
+          <h3>Class-4 Gas Lift</h3>
+          <p>Heavy-duty mechanism supports up to 400 lbs, smooth height adjustment.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-bed"></i></div>
+          <h3>180° Recline</h3>
+          <p>Lie back and relax between games — multi-angle lock system included.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Specs and details section -->
+  <div class="container" id="specs">
+    <div class="specs">
+      <div class="specs-left">
+        <h2>Technical <span style="color:#ff4d6d;">Dominance</span></h2>
+        <p>Every component engineered for performance, comfort, and longevity. The Nexus Elite is the ultimate weapon for your battlestation.</p>
+        <div class="spec-list">
+          <div class="spec-item"><i class="fas fa-weight-hanging"></i> <strong>Steel frame</strong> — Reinforced alloy structure</div>
+          <div class="spec-item"><i class="fas fa-tint"></i> <strong>Breathable mesh + PU leather</strong> — Anti-sweat hybrid</div>
+          <div class="spec-item"><i class="fas fa-microphone-alt"></i> <strong>Integrated lumbar & neck pillows</strong> — Magnetic memory foam</div>
+          <div class="spec-item"><i class="fas fa-undo-alt"></i> <strong>Rocking mechanism</strong> — 15° tension control</div>
+        </div>
+      </div>
+      <div class="specs-right">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23131822'/%3E%3Cpath d='M70,100 L70,160 L130,160 L130,100' stroke='%23ff4d6d' stroke-width='4' fill='%23222a38'/%3E%3Crect x='80' y='55' width='40' height='50' rx='12' fill='%23303a4a'/%3E%3Ccircle cx='100' cy='78' r='10' fill='%23ffb347'/%3E%3Cpath d='M60,150 L50,185 L80,180 L85,150' fill='%231f2633' stroke='%23ff4d6d' stroke-width='2'/%3E%3Cpath d='M140,150 L150,185 L120,180 L115,150' fill='%231f2633' stroke='%23ff4d6d' stroke-width='2'/%3E%3C/svg%3E" alt="chair blueprint">
+        <div class="quote">"The most responsive and sturdy gaming chair I've ever used. Worth every penny."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonial + reviews section -->
+  <div class="testimonial" id="reviews">
+    <div class="container">
+      <h2 class="section-title">Trusted by 15,000+ Gamers</h2>
+      <p class="section-sub">Real feedback from the frontlines of esports and streaming.</p>
+      <div class="testimonial-card">
+        <div class="stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p class="testimonial-text">"The lumbar support is a game-changer. I can play 10+ hours without any back pain. Armrests feel premium and sturdy. 10/10 would recommend."</p>
+        <p class="customer">— Mike "ShadowBlade" Cortez, Pro Valorant Player</p>
+      </div>
+      <div class="testimonial-card" style="margin-top: 1.5rem;">
+        <div class="stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p class="testimonial-text">"Assembly was super easy, the chair looks incredible on stream. My posture improved and the material feels high-end. Best investment for my setup."</p>
+        <p class="customer">— Jessica "JaeCross" Lin, Twitch Streamer</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- final CTA banner -->
+  <div class="container">
+    <div class="cta-banner">
+      <h3>Level Up Your Setup Today</h3>
+      <p>Free shipping + 2-year warranty + 30-day risk-free trial</p>
+      <button class="btn-white" id="finalCtaBtn"><i class="fas fa-gaming"></i> Get Your Nexus Elite</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="container">
+    <footer>
+      <div style="font-size: 0.85rem;">© 2026 FusionNexus — Unleash The Gamer Within</div>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-discord"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- small interactive JS for alerts / demo add to cart simulation -->
+  <script>
+    // simple interactive popups for demo
+    const buyBtn = document.getElementById('buyNowBtn');
+    const cartBtn = document.getElementById('cartAlertBtn');
+    const watchBtn = document.getElementById('watchTrailerBtn');
+    const finalBtn = document.getElementById('finalCtaBtn');
+
+    function handlePurchase() {
+      alert("🔥 NEXUS ELITE added to cart! 🎮 Free shipping applied. Total: $349.99");
+    }
+
+    if (buyBtn) buyBtn.addEventListener('click', handlePurchase);
+    if (cartBtn) cartBtn.addEventListener('click', handlePurchase);
+    if (finalBtn) finalBtn.addEventListener('click', handlePurchase);
+
+    if (watchBtn) {
+      watchBtn.addEventListener('click', () => {
+        alert("🎬 Trailer: Experience the ultimate in ergonomic warfare. (Fusion Nexus Pro | 2026) \n\nFeel the comfort, own the arena.");
+      });
+    }
+
+    // Optional smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === "#" || targetId === "") return;
+        const targetElem = document.querySelector(targetId);
+        if (targetElem) {
+          e.preventDefault();
+          targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
